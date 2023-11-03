@@ -18,11 +18,13 @@ public class Playlist {
         songs.add(song);
     }
 
-    public void removeSong(String artistName, String titleName) {
+    public void removeSong(String artist, String title) {
         Iterator<Song> iterator = songs.iterator();
         while (iterator.hasNext()) {
             Song song = iterator.next();
-            if (song.getArtist().equals(artistName) && song.getTitle().equals(titleName)) {
+            if (song.getArtist().equals(artist) && song.getTitle().equals(title)) {
+            
+            
                 iterator.remove();
             }
         }
