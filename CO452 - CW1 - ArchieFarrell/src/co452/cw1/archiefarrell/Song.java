@@ -12,10 +12,10 @@ class Song {
     private String title;
     private int playCount;
     
-    public Song(String artist, String title) {
+    public Song(String artist, String title, int playCount) {
         this.artist = artist;
         this.title = title;
-        this.playCount = 0;
+        this.playCount = playCount;
         
     }
     

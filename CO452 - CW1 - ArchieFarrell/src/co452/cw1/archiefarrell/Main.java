@@ -2,6 +2,8 @@ package co452.cw1.archiefarrell;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Scanner;
+
 /**
  *
  * @author Archie Farrell
@@ -12,16 +14,16 @@ public class Main {
     public static void main(String[] args) {
         Playlist album = new Playlist();
         
-        Song song1 = new Song("Artist1", "Song1");
-        Song song2 = new Song("Artist2", "Song2");
-        Song song3 = new Song("Artist3", "Song3");
-        Song song4 = new Song("Artist1", "Song1");
-        Song song5 = new Song("Artist2", "Song2");
-        Song song6 = new Song("Artist3", "Song3");
-        Song song7 = new Song("Artist1", "Song1");
-        Song song8 = new Song("Artist2", "Song2");
-        Song song9 = new Song("Artist3", "Song3");
-        Song song10 = new Song("Artist3", "Song3");
+        Song song1 = new Song("Artist1", "Song1",11);
+        Song song2 = new Song("Artist2", "Song2",67);
+        Song song3 = new Song("Artist3", "Song3",87);
+        Song song4 = new Song("Artist1", "Song1",111);
+        Song song5 = new Song("Artist2", "Song2",56);
+        Song song6 = new Song("Artist3", "Song3",90);
+        Song song7 = new Song("Artist1", "Song1",57);
+        Song song8 = new Song("Artist2", "Song2",34);
+        Song song9 = new Song("Artist3", "Song3",91);
+        Song song10 = new Song("Artist3", "Song3",43);
         
         album.addSong(song1);
         album.addSong(song2);
@@ -34,15 +36,15 @@ public class Main {
         album.addSong(song9);
         album.addSong(song10);
         
-        // Add 
-        song1.incrementPlayCount();
-        song1.incrementPlayCount();
-        song2.incrementPlayCount();
+        
         
         System.out.println("Song List:");
         album.printAllSongs();
         
-        int playCountThreshold = 1;
+        int playCountThreshold;
+        Scanner input = new Scanner (System.in);
+        System.out.println("Enter Play Count Threshold");
+        playCountThreshold = input.nextInt();
         System.out.println("\nSongs with more than " + playCountThreshold + " play(s):");
         album.printSongsOverPlayCount(playCountThreshold);
         
