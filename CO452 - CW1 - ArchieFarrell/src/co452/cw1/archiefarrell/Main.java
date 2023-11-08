@@ -1,7 +1,5 @@
 package co452.cw1.archiefarrell;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+
 import java.util.Scanner;
 
 /**
@@ -15,16 +13,17 @@ public class Main {
         Scanner input = new Scanner(System.in);
         Playlist album = new Playlist();
         
-        Song song1 = new Song("Artist1", "Song1",11);
-        Song song2 = new Song("Artist2", "Song2",67);
-        Song song3 = new Song("Artist3", "Song3",87);
-        Song song4 = new Song("Artist1", "Song1",111);
-        Song song5 = new Song("Artist2", "Song2",56);
-        Song song6 = new Song("Artist3", "Song3",90);
-        Song song7 = new Song("Artist1", "Song1",57);
-        Song song8 = new Song("Artist2", "Song2",34);
-        Song song9 = new Song("Artist3", "Song3",91);
-        Song song10 = new Song("Artist3", "Song3",43);
+        //Main Method for Adding Data for Song ArrayList
+        Song song1 = new Song("Royal Blood", "Out Of The Black",76);
+        Song song2 = new Song("The Strokes", "Heart In A Cage",23);
+        Song song3 = new Song("The Fratellis", "My Friend John",45);
+        Song song4 = new Song("The White Stripes", "Blue Orchid",87);
+        Song song5 = new Song("Kasabian", "Shoot The Runner",67);
+        Song song6 = new Song("Nirvana", "Breed",35);
+        Song song7 = new Song("Foo Fighters", "Best Of You",123);
+        Song song8 = new Song("Arctic Monkeys", "Mardy Bum",59);
+        Song song9 = new Song("Muse", "Psycho",18);
+        Song song10 = new Song("Blur", "Song2",41);
         
         album.addSong(song1);
         album.addSong(song2);
@@ -37,6 +36,7 @@ public class Main {
         album.addSong(song9);
         album.addSong(song10);
         
+        // Displays Menu for user input options.
         while (true) {
             System.out.println("Enter 1 to add a song, 2 to remove a song, 3 to print all songs, 4 to print songs over a play count, or 5 to exit:");
             int choice = input.nextInt();
@@ -44,6 +44,7 @@ public class Main {
 
             switch (choice) {
                 
+                // Main Method for Adding a song to the existing List
                 case 1:
                     System.out.println("Enter artist name:");
                     String artist = input.nextLine();
@@ -56,6 +57,7 @@ public class Main {
                     System.out.println("Song added successfully!");
                     break;
                     
+                // Main Method for removing Song from existing ArrayList    
                 case 2:
                     System.out.println("Enter artist name of the song to remove:");
                     String removeArtist = input.nextLine();
@@ -67,11 +69,13 @@ public class Main {
                     System.out.println("Song removed successfully!");
                     break;    
                 
+                //Main Method for Printing songs from exsting ArrayList
                 case 3:
                     System.out.println("All Songs:");
                     album.printAllSongs();
                     break;
-                    
+                 
+                // Main Method for Priting songs over inputted Threshold from exsting ArrayList    
                 case 4:
                     System.out.println("Enter play count threshold:");
                     int playCountThreshold = input.nextInt();
@@ -80,6 +84,7 @@ public class Main {
                     album.printSongsOverPlayCount(playCountThreshold);
                     break;    
                 
+                //Main Method for exiting Program
                 case 5:
                     System.out.println("Exiting program. Goodbye!");
                     input.close();
