@@ -31,7 +31,5 @@ class Song {
         return playCount;
     }
     
-    public void incrementPlayCount() {
-        playCount++;
-    }
+    
 }

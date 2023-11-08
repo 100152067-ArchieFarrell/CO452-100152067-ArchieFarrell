@@ -12,6 +12,7 @@ public class Main {
 
     
     public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
         Playlist album = new Playlist();
         
         Song song1 = new Song("Artist1", "Song1",11);
@@ -36,23 +37,64 @@ public class Main {
         album.addSong(song9);
         album.addSong(song10);
         
-        
-        
-        System.out.println("Song List:");
-        album.printAllSongs();
-        
-        int playCountThreshold;
-        Scanner input = new Scanner (System.in);
-        System.out.println("Enter Play Count Threshold");
-        playCountThreshold = input.nextInt();
-        System.out.println("\nSongs with more than " + playCountThreshold + " play(s):");
-        album.printSongsOverPlayCount(playCountThreshold);
-        
-        album.removeSong("Artist1", "Song1");
-        
-        System.out.println("\nSongs after removing a song:");
-        album.printAllSongs();
+        while (true) {
+            System.out.println("Enter 1 to add a song, 2 to remove a song, 3 to print all songs, 4 to print songs over a play count, or 5 to exit:");
+            int choice = input.nextInt();
+            input.nextLine(); 
 
-    }
+            switch (choice) {
+                
+                case 1:
+                    System.out.println("Enter artist name:");
+                    String artist = input.nextLine();
+                    System.out.println("Enter song title:");
+                    String title = input.nextLine();
+                    System.out.println("Enter song title:");
+                    int playCount = input.nextInt();
+                    Song newSong = new Song(artist, title, playCount);
+                    album.addSong(newSong);
+                    System.out.println("Song added successfully!");
+                    break;
+                    
+                case 2:
+                    System.out.println("Enter artist name of the song to remove:");
+                    String removeArtist = input.nextLine();
+                    System.out.println("Enter song title of the song to remove:");
+                    String removeTitle = input.nextLine();
+                    System.out.println("Enter Play Count of the song to remove");
+                    int removePlayCount = input.nextInt();
+                    album.removeSong(removeArtist, removeTitle, removePlayCount);
+                    System.out.println("Song removed successfully!");
+                    break;    
+                
+                case 3:
+                    System.out.println("All Songs:");
+                    album.printAllSongs();
+                    break;
+                    
+                case 4:
+                    System.out.println("Enter play count threshold:");
+                    int playCountThreshold = input.nextInt();
+                    input.nextLine(); // Consume newline character after reading integer input
+                    System.out.println("Songs with more than " + playCountThreshold + " play(s):");
+                    album.printSongsOverPlayCount(playCountThreshold);
+                    break;    
+                
+                case 5:
+                    System.out.println("Exiting program. Goodbye!");
+                    input.close();
+                    System.exit(0);
+                    break;
+                
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+            }
+                 
+            }
+        
+        
+        
     
-}
+        }
+    
+    }

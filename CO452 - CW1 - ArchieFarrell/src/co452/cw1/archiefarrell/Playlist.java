@@ -5,7 +5,7 @@ import java.util.List;
 
 /**
  *
- * @author Archie
+ * @author Archie Farrell
  */
 public class Playlist {
     private List<Song> songs;
@@ -18,7 +18,7 @@ public class Playlist {
         songs.add(song);
     }
 
-    public void removeSong(String artist, String title) {
+    public void removeSong(String artist, String title, int playCount) {
         Iterator<Song> iterator = songs.iterator();
         while (iterator.hasNext()) {
             Song song = iterator.next();
